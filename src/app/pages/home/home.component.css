@@ -1,0 +1,28 @@
+/* Estilos para el contenedor principal */
+h1 {
+  color: #4caf50; /* Cambia el color del texto del encabezado */
+  font-size: 24px;
+  text-align: center;
+}
+
+button {
+  background-color: #008cba; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado */
+  border: none; /* Sin bordes */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  margin: 10px; /* Espacio entre botones */
+}
+
+/* Estilo del botón al pasar el mouse */
+button:hover {
+  background-color: #005f6b; /* Cambia de color cuando el mouse pasa por encima */
+}
+
+/* Estilo para el mensaje de invitado */
+p {
+  text-align: center;
+  color: #ff0000; /* Color rojo para el texto de advertencia */
+  font-size: 18px;
+}

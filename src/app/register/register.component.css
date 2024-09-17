@@ -45,6 +45,13 @@ button[type="submit"]:hover {
   background-color: #005f6b;
 }
 
+p {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+
 button {
   background-color: #f44336;
   color: white;
@@ -53,29 +60,9 @@ button {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-  margin-right: 5px;
   font-size: 16px;
 }
 
 button:hover {
   background-color: #d32f2f;
-}
-
-p {
-  color: red;
-  font-size: 16px;
-  text-align: center;
-  margin-top: 10px;
-}
-
-button + button {
-  margin-left: 5px;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
 }

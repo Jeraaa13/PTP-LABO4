@@ -1,2 +1,12 @@
+<div *ngIf="user; else guest">
+  <h1>Bienvenido, {{ user?.email }}!</h1>
+  <button (click)="logout()">Cerrar sesión</button>
+</div>
+
+<ng-template #guest>
+  <p>No estás logueado.</p>
+  <button routerLink="/login">Ir a Login</button>
+  <button routerLink="/register">Ir a Registro</button>
+</ng-template>
+
 <button routerLink="/quien-soy">Quien soy</button>
-<button routerLink="/login">Login</button>
