@@ -1,0 +1,97 @@
+/* Estilo general */
+.div-body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Estilo del contenedor principal centrado */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #225763; /* Fondo del contenedor */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  overflow: hidden; /* Esto evita que el contenido se salga */
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+/* Títulos y textos */
+h1 {
+  font-size: 24px;
+  color: #41d8bf; /* Color del título */
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 20px;
+  color: #41d8bf;
+  margin-top: 10px;
+}
+
+p {
+  line-height: 1.6;
+  color: white;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Descripción del juego */
+.game-description {
+  margin-top: 20px;
+  background-color: #225763;
+  padding: 15px;
+  border-radius: 10px;
+  max-height: 150px; /* Límite de altura */
+  width: 100%; /* Asegura que la descripción use todo el ancho */
+  text-align: justify; /* Justifica el texto para un mejor formato */
+}
+
+/* Estilo de los botones */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  margin-left: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn.second-color {
+  background-color: #41d8bf;
+}
+
+.btn.second-color:hover {
+  background-color: #2f89b3;
+}
+
+/* Contenedor del menú de botones */
+.container-menu {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

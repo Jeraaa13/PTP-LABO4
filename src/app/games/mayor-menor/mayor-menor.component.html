@@ -1,0 +1,31 @@
+<div class="mayor-menor-container">
+  <button (click)="volverAlHome()" class="volver-home">Volver al Home</button>
+  <h2>Mayor o Menor</h2>
+
+  <div class="carta-actual">
+    <p>Carta actual:</p>
+    <div class="carta">{{ cartaActual }}</div>
+  </div>
+
+  <div class="carta-siguiente">
+    <p>Siguiente carta:</p>
+    <div class="carta carta-oculta">?</div>
+  </div>
+
+  <div class="controles">
+    <button (click)="adivinar(true)" [disabled]="!cartaSiguiente">Mayor</button>
+    <button (click)="adivinar(false)" [disabled]="!cartaSiguiente">
+      Menor
+    </button>
+  </div>
+
+  <div class="puntaje">
+    <p>Puntaje: {{ puntaje }}</p>
+  </div>
+
+  <div class="mensaje">
+    <p>{{ mensaje }}</p>
+  </div>
+
+  <button (click)="iniciarJuego()" class="reiniciar">Reiniciar Juego</button>
+</div>

@@ -43,7 +43,6 @@ export class LoginComponent {
   loginRapido(email: string, password: string) {
     this.email = email;
     this.password = password;
-    this.login();
   }
 
   navigateToRegister() {

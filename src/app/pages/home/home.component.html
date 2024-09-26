@@ -1,12 +1,11 @@
-<div *ngIf="user; else guest">
-  <h1>Bienvenido, {{ user?.email }}!</h1>
-  <button (click)="logout()">Cerrar sesión</button>
+<div class="main-content">
+  <div class="game-container">
+    <div *ngFor="let game of games" class="game" (click)="irAJuego(game.route)">
+      <img [src]="game.imgUrl" alt="{{ game.title }}" />
+      <div class="game-info">
+        <h3>{{ game.title }}</h3>
+        <p>{{ game.description }}</p>
+      </div>
+    </div>
+  </div>
 </div>
-
-<ng-template #guest>
-  <p>No estás logueado.</p>
-  <button routerLink="/login">Ir a Login</button>
-  <button routerLink="/register">Ir a Registro</button>
-</ng-template>
-
-<button routerLink="/quien-soy">Quien soy</button>

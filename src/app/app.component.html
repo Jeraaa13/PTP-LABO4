@@ -1,1 +1,32 @@
+<div class="navbar">
+  <div class="user-info" *ngIf="user">
+    <img src="icons/user.png" alt="Usuario icon" class="user-icon" />
+    <span>{{ user?.email }}</span>
+  </div>
+  <div class="nav-links">
+    <a *ngIf="!user" (click)="navigateTo('/login')">
+      <img src="icons/login.png" alt="login icon" class="icon" />
+      Login
+    </a>
+    <a *ngIf="!user" (click)="navigateTo('/register')">
+      <img src="icons/register.png" alt="register icon" class="icon" />
+      Registro
+    </a>
+    <a
+      (click)="navigateTo('/quien-soy')"
+      [ngClass]="{ 'quien-soy-right': !user }"
+    >
+      <img src="icons/quien-soy.png" alt="quien-soy icon" class="icon" />
+      Quién Soy
+    </a>
+    <a *ngIf="user" (click)="navigateTo('/chat')">
+      <img src="icons/chat.png" alt="chat icon" class="icon" />
+      Chat
+    </a>
+    <a *ngIf="user" (click)="logout()">
+      <img src="icons/logout.png" alt="logout icon" class="icon" />
+    </a>
+  </div>
+</div>
+
 <router-outlet />

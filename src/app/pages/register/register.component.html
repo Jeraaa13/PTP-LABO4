@@ -1,0 +1,41 @@
+<div class="register-page">
+  <section class="register-container">
+    <h1>Registrarse</h1>
+
+    <form (submit)="register()" class="register-form">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña:</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn second-color">Registrarse</button>
+
+      <button
+        type="button"
+        (click)="navigateToLogin()"
+        class="btn second-color"
+      >
+        ¿Ya tienes una cuenta? Inicia sesión
+      </button>
+    </form>
+
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  </section>
+</div>

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
+import { Component } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -11,25 +11,36 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  user: any = null;
+  constructor(private router: Router) {}
 
-  constructor(private auth: Auth, private router: Router) {
-    this.auth.onAuthStateChanged((user) => {
-      this.user = user;
-    });
-  }
+  games = [
+    {
+      title: 'Ahorcado',
+      description: 'Adivina la palabra antes de que se complete el dibujo',
+      imgUrl: '/games/AHORCADO-TITULO.png',
+      route: '/ahorcado',
+    },
+    {
+      title: 'Mayor o Menor',
+      description: 'Adivina si la siguiente carta será mayor o menor',
+      imgUrl: '/games/mayormenor.png',
+      route: '/mayor-menor',
+    },
+    {
+      title: 'Preguntados',
+      description: 'Pon a prueba tus conocimientos generales',
+      imgUrl: '/games/preguntados.jpg',
+      route: '/preguntados',
+    },
+    {
+      title: 'Juego 4',
+      description: 'Próximamente',
+      imgUrl: '/games/proximamente.jpg',
+      route: '/juego4',
+    },
+  ];
 
-  logout() {
-    this.auth.signOut().then(() => {
-      this.router.navigate(['/login']);
-    });
-  }
-
-  navigateToLogin() {
-    this.router.navigate(['/login']);
-  }
-
-  navigateToRegister() {
-    this.router.navigate(['/register']);
+  irAJuego(route: string) {
+    this.router.navigate([route]);
   }
 }

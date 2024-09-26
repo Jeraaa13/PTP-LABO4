@@ -1,60 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quién Soy</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        width: 80%;
-        margin: 20px auto;
-        background-color: white;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .profile-pic {
-        width: 150px;
-        border-radius: 50%;
-        margin-right: 20px;
-    }
-    .header {
-        display: flex;
-        align-items: center;
-    }
-    h1 {
-        font-size: 24px;
-        color: #333;
-    }
-    p {
-        line-height: 1.6;
-        color: #555;
-    }
-    .game-description {
-        margin-top: 20px;
-    }
-</style>
-<div class="container-menu">
-    <button routerLink="/login">Login</button>
-    <button routerLink="/home">Inicio</button>
-</div>
-<div class="container">
-    <div class="header">
-        <img src="yo.jpg" alt="Foto del alumno" class="profile-pic">
-        <div>
-            <h1>Quien soy</h1>
-            <p>Gerardo Toranzo</p>
-            <p>gerardo.m.toranzo&#64;gmail.com</p>
-        </div>
+<div class="div-body">
+  <div class="container-menu">
+    <button routerLink="/home" class="btn second-color">Inicio</button>
+  </div>
+
+  <div class="profile-container">
+    <img src="yo.jpg" alt="Foto del alumno" class="profile-pic" />
+    <h1>Gerardo Toranzo</h1>
+    <p>gerardo.m.toranzo&#64;gmail.com</p>
+
+    <div class="game-description">
+      <h2>Mi Juego</h2>
+      <p>
+        Va a ser un clasico buscaminas, tipico juego donde se generan ciertas
+        bombas en una matriz y tenes que ir descubriendo donde se encuentran sin
+        apretar la casilla de las bomba.
+      </p>
     </div>
-    <div class="descripcion-juego">
-        <h2>Mi Juego</h2>
-        <p>
-            En progreso
-        </p>
-    </div>
+  </div>
 </div>

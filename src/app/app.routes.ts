@@ -1,13 +1,48 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { HomeComponent } from './pages/home/home.component';
-import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
-import { RegisterComponent } from './register/register.component';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'quien-soy', component: QuienSoyComponent },
-  { path: 'register', component: RegisterComponent },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./pages/login/login.component').then((c) => c.LoginComponent),
+  },
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('./pages/home/home.component').then((c) => c.HomeComponent),
+  },
+  {
+    path: 'quien-soy',
+    loadComponent: () =>
+      import('./pages/quien-soy/quien-soy.component').then(
+        (c) => c.QuienSoyComponent
+      ),
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./pages/register/register.component').then(
+        (c) => c.RegisterComponent
+      ),
+  },
+  {
+    path: 'chat',
+    loadComponent: () =>
+      import('./pages/chat/chat.component').then((c) => c.ChatComponent),
+  },
+  {
+    path: 'ahorcado',
+    loadComponent: () =>
+      import('./games/ahorcado/ahorcado.component').then(
+        (c) => c.AhorcadoComponent
+      ),
+  },
+  {
+    path: 'mayor-menor',
+    loadComponent: () =>
+      import('./games/mayor-menor/mayor-menor.component').then(
+        (c) => c.MayorMenorComponent
+      ),
+  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
