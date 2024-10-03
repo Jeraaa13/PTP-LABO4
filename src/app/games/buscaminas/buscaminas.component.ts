@@ -15,6 +15,9 @@ export class BuscaminasComponent implements OnInit {
   timer = 0;
   gameOver = false;
   timerInterval: any;
+  showModal = false;
+  modalTitle = '';
+  modalMessage = '';
 
   constructor(private router: Router) {}
 
@@ -101,7 +104,7 @@ export class BuscaminasComponent implements OnInit {
 
     if (cell.isMine) {
       this.gameOver = true;
-      alert('¡Juego terminado! Pisaste una mina.');
+      this.showModalMessage('¡Juego terminado!', 'Pisaste una mina.');
       clearInterval(this.timerInterval);
       this.resetGame();
     } else if (cell.adjacentMines === 0) {
@@ -135,7 +138,7 @@ export class BuscaminasComponent implements OnInit {
 
     if (cellsRevealed === 64 - 10) {
       // 64 celdas totales menos 10 minas
-      alert('¡Ganaste! Has encontrado todas las minas.');
+      this.showModalMessage('¡Ganaste!', 'Has encontrado todas las minas.');
       this.gameOver = true;
       clearInterval(this.timerInterval);
     }
@@ -174,6 +177,19 @@ export class BuscaminasComponent implements OnInit {
 
   volverAlHome() {
     this.router.navigate(['/home']);
+  }
+
+  showModalMessage(title: string, message: string) {
+    this.modalTitle = title;
+    this.modalMessage = message;
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+    if (this.gameOver) {
+      this.resetGame();
+    }
   }
 }
 

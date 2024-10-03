@@ -1,5 +1,13 @@
 <button (click)="volverAlHome()" class="volver-home">Volver al Home</button>
 
+<div class="modal" [class.show]="showModal">
+  <div class="modal-content">
+    <h2>{{ modalTitle }}</h2>
+    <p>{{ modalMessage }}</p>
+    <button (click)="closeModal()">Cerrar</button>
+  </div>
+</div>
+
 <div class="buscaminas-container">
   <div class="header">
     <div class="flag-count">🚩 {{ flagsLeft }}</div>
