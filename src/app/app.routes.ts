@@ -44,5 +44,19 @@ export const routes: Routes = [
         (c) => c.MayorMenorComponent
       ),
   },
+  {
+    path: 'preguntados',
+    loadComponent: () =>
+      import('./games/preguntados/preguntados.component').then(
+        (c) => c.PreguntadosComponent
+      ),
+  },
+  {
+    path: 'buscaminas',
+    loadComponent: () =>
+      import('./games/buscaminas/buscaminas.component').then(
+        (c) => c.BuscaminasComponent
+      ),
+  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

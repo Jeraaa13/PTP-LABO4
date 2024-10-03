@@ -10,8 +10,8 @@
 
 .game {
   position: relative;
-  width: 300px;
-  height: 90%;
+  width: 25%;
+  height: 95%;
   overflow: hidden;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;

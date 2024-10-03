@@ -4,7 +4,14 @@
 
   <div class="carta-actual">
     <p>Carta actual:</p>
-    <div class="carta">{{ cartaActual }}</div>
+    <div
+      class="carta"
+      [ngClass]="{
+        roja: cartaActual.includes('♥️') || cartaActual.includes('♦️')
+      }"
+    >
+      {{ cartaActual }}
+    </div>
   </div>
 
   <div class="carta-siguiente">

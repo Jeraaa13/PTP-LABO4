@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -29,14 +28,14 @@ export class HomeComponent {
     {
       title: 'Preguntados',
       description: 'Pon a prueba tus conocimientos generales',
-      imgUrl: '/games/preguntados.jpg',
+      imgUrl: '/games/preguntados.png',
       route: '/preguntados',
     },
     {
-      title: 'Juego 4',
-      description: 'Próximamente',
-      imgUrl: '/games/proximamente.jpg',
-      route: '/juego4',
+      title: 'Buscaminas',
+      description: 'Debes despejar el campo minado sin detonar ninguna mina',
+      imgUrl: '/games/buscaminas.png',
+      route: '/buscaminas',
     },
   ];
 

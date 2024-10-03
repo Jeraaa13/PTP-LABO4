@@ -57,4 +57,8 @@ export class ChatComponent implements OnInit, OnDestroy {
       this.message = '';
     }
   }
+
+  volverAlHome() {
+    this.router.navigate(['/home']);
+  }
 }

@@ -79,7 +79,8 @@ export class MayorMenorComponent implements OnInit {
     } else if (valorSiguiente === valorActual) {
       this.mensaje = 'Iguales. No se suma punto.';
     } else {
-      this.mensaje = 'Incorrecto.';
+      this.mensaje = `Juego terminado. Puntaje final: ${this.puntaje}`;
+      this.puntaje = 0;
     }
 
     this.cartaActual = this.cartaSiguiente;

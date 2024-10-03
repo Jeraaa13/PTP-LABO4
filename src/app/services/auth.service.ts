@@ -1,32 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Auth, User, onAuthStateChanged, signOut } from '@angular/fire/auth';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-import { timestamp } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  user: User | null = null;
+  private userSubject = new BehaviorSubject<User | null>(null);
+  user$ = this.userSubject.asObservable();
 
   constructor(private auth: Auth, private firestore: Firestore) {
     onAuthStateChanged(this.auth, (user) => {
-      this.user = user;
-      this.logAuthStateChange();
+      this.userSubject.next(user);
+      this.logAuthStateChange(user);
     });
   }
 
   isAuthenticated(): Promise<boolean> {
-    return new Promise<boolean>((res) => {
-      onAuthStateChanged(this.auth, (user) => {
-        res(!!user);
+    return new Promise<boolean>((resolve) => {
+      this.user$.subscribe((user) => {
+        resolve(!!user);
       });
     });
   }
 
   getUser(): Promise<User | null> {
     return new Promise<User | null>((resolve) => {
-      onAuthStateChanged(this.auth, (user) => {
+      this.user$.subscribe((user) => {
         resolve(user);
       });
     });
@@ -36,10 +37,10 @@ export class AuthService {
     return signOut(this.auth);
   }
 
-  private async logAuthStateChange() {
+  private async logAuthStateChange(user: User | null) {
     const logsRef = collection(this.firestore, 'logs');
     await addDoc(logsRef, {
-      email: this.user ? this.user.email : 'Guest',
+      email: user ? user.email : 'Guest',
       fechaIngreso: new Date(),
     });
   }

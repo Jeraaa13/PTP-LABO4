@@ -1,0 +1,24 @@
+<button (click)="volverAlHome()" class="volver-home">Volver al Home</button>
+
+<div class="buscaminas-container">
+  <div class="header">
+    <div class="flag-count">🚩 {{ flagsLeft }}</div>
+    <button (click)="resetGame()">Reset</button>
+    <div class="timer">⏱️ {{ timer }}</div>
+  </div>
+  <div class="grid">
+    <div *ngFor="let row of grid; let i = index" class="row">
+      <button
+        *ngFor="let cell of row; let j = index"
+        class="cell"
+        [class.revealed]="cell.isRevealed"
+        [class.flagged]="cell.isFlagged"
+        [disabled]="cell.isRevealed || gameOver"
+        (click)="revealCell(i, j)"
+        (contextmenu)="$event.preventDefault(); flagCell(i, j)"
+      >
+        {{ getCellContent(cell) }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,32 +1,33 @@
 <div class="navbar">
-  <div class="user-info" *ngIf="user">
+  <div class="user-info" *ngIf="authService.user$ | async as user">
     <img src="icons/user.png" alt="Usuario icon" class="user-icon" />
     <span>{{ user?.email }}</span>
   </div>
   <div class="nav-links">
-    <a *ngIf="!user" (click)="navigateTo('/login')">
+    <a *ngIf="!(authService.user$ | async)" (click)="navigateTo('/login')">
       <img src="icons/login.png" alt="login icon" class="icon" />
       Login
     </a>
-    <a *ngIf="!user" (click)="navigateTo('/register')">
+    <a *ngIf="!(authService.user$ | async)" (click)="navigateTo('/register')">
       <img src="icons/register.png" alt="register icon" class="icon" />
       Registro
     </a>
     <a
       (click)="navigateTo('/quien-soy')"
-      [ngClass]="{ 'quien-soy-right': !user }"
+      [ngClass]="{ 'quien-soy-right': !(authService.user$ | async) }"
     >
       <img src="icons/quien-soy.png" alt="quien-soy icon" class="icon" />
       Quién Soy
     </a>
-    <a *ngIf="user" (click)="navigateTo('/chat')">
+    <a *ngIf="authService.user$ | async" (click)="navigateTo('/chat')">
       <img src="icons/chat.png" alt="chat icon" class="icon" />
       Chat
     </a>
-    <a *ngIf="user" (click)="logout()">
+    <a *ngIf="authService.user$ | async" (click)="logout()">
       <img src="icons/logout.png" alt="logout icon" class="icon" />
+      Cerrar Sesión
     </a>
   </div>
 </div>
 
-<router-outlet />
+<router-outlet></router-outlet>

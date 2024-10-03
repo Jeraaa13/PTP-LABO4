@@ -1,0 +1,38 @@
+<button (click)="volverAlHome()" class="volver-home">Volver al Home</button>
+
+<div class="preguntados-container">
+  <h1 class="game-title">Preguntados</h1>
+
+  <div *ngIf="currentQuestion && !gameOver" class="question-container">
+    <div class="progress-bar">
+      <div
+        class="progress"
+        [style.width]="(currentIndex / questions.length) * 100 + '%'"
+      ></div>
+    </div>
+    <div class="image-container">
+      <img [src]="currentImage" alt="Question Image" class="question-image" />
+    </div>
+    <h2 class="question">{{ currentQuestion.question.text }}</h2>
+    <div class="answers-grid">
+      <button
+        *ngFor="let answer of shuffledAnswers"
+        (click)="checkAnswer(answer)"
+        class="answer-button"
+      >
+        {{ answer }}
+      </button>
+    </div>
+    <p class="score">Puntaje: {{ score }} / {{ currentIndex }}</p>
+  </div>
+
+  <div *ngIf="gameOver" class="game-over">
+    <h2>¡Juego terminado!</h2>
+    <p class="final-score">
+      Puntaje final: {{ score }} / {{ questions.length }}
+    </p>
+    <button (click)="restartGame()" class="restart-button">
+      Jugar de nuevo
+    </button>
+  </div>
+</div>
